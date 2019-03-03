@@ -1,7 +1,12 @@
+
 FontAwesomeIcon {
     -fx-cursor: hand;
 }
 
 .head-background {
-    -fx-background-color: linear-gradient(to left,#41c7f4 ,#1a88ad);
+    -fx-background-color: linear-gradient(to bottom right, red, blue);
+}
+
+.active {
+    -fx-background-color: #9fdceb;
 }

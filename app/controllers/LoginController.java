@@ -1,6 +1,7 @@
 package app.controllers;
 
 import app.helpers.Renderer;
+import app.models.User;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -8,15 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
-import static app.helpers.DBUtils.connection;
+import static app.helpers.Requests.postRequestObj;
 import static app.helpers.Security.loginUser;
 
 public class LoginController implements Initializable {
@@ -29,20 +32,25 @@ public class LoginController implements Initializable {
     private JFXPasswordField pf_password;
 
     @FXML
-    public void login(MouseEvent event) throws IOException, SQLException {
+    public void login(MouseEvent event) throws IOException {
         Renderer renderer = new Renderer();
+        String email = tf_username.getText();
+
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        String username = tf_username.getText();
         String password = pf_password.getText();
 
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM account WHERE username=\'" + username + "\' and password=\'" + password + "\'");
-        if (resultSet.next()) {
-            loginUser(resultSet);
-            renderer.render(stage, "../views/home.fxml");
+        Map<String, Object> params = new HashMap<>();
+        params.put("email", email);
+        params.put("password", password);
+        JSONObject user = postRequestObj("http://localhost:8080/user/login", "", params);
+        if (user.length() == 0) {
+            System.out.println("Username/password incorrect");
         } else {
-            System.out.println("User not found");
+            loginUser(user);
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("token"));
+            outputStream.writeObject(User.token);
+            renderer.render(stage, "../views/home.fxml", "Recommendations- Home");
         }
     }
 
@@ -50,10 +58,7 @@ public class LoginController implements Initializable {
 
     @FXML
     public void dragged(MouseEvent event) {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
+        Renderer.drag(event, x, y);
     }
 
     @FXML
@@ -68,7 +73,7 @@ public class LoginController implements Initializable {
         Renderer renderer = new Renderer();
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        renderer.render(stage, "../views/register.fxml");
+        renderer.render(stage, "../views/register.fxml", "Recommendations- Register");
     }
 
     @Override

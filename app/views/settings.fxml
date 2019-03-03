@@ -1,101 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-
-<?import com.jfoenix.controls.JFXDatePicker?>
-<AnchorPane id="AnchorPane" prefHeight="399.0" prefWidth="949.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.SettingsController">
+<?import javafx.scene.text.*?>
+<AnchorPane id="AnchorPane" prefHeight="398.0" prefWidth="949.0" style="-fx-background-color: #fff;"
+            xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.controllers.SettingsController">
     <children>
-        <Pane layoutX="29.0" layoutY="22.0" prefHeight="338.0" prefWidth="896.0" style="-fx-background-color: #fff;">
+        <Pane layoutX="27.0" layoutY="21.0" prefHeight="359.0" prefWidth="896.0" style="-fx-background-color: #fff;">
             <children>
-                <ImageView fitHeight="70.0" fitWidth="76.0" layoutX="41.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="image" fitHeight="70.0" fitWidth="76.0" layoutX="41.0" layoutY="10.0"
+                           pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../assets/images/icons8_500px_64px.png" />
+                        <Image url="@../assets/images/user.png"/>
                     </image>
                 </ImageView>
-                <Separator layoutX="41.0" layoutY="94.0" prefHeight="0.0" prefWidth="763.0" />
-                <Label layoutX="123.0" layoutY="18.0" text="Settings" textFill="#3a1c9d">
+                <Separator layoutX="41.0" layoutY="93.0" prefHeight="0.0" prefWidth="763.0"/>
+                <Label layoutX="139.0" layoutY="22.0" text="Settings" textFill="#3a1c9d">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="Lato Bold" size="36.0"/>
                     </font>
                 </Label>
-                <Label layoutX="51.0" layoutY="113.0" text="Full Name" textFill="#aeacac">
+                <Label layoutX="51.0" layoutY="121.0" text="Full Name" textFill="#aeacac">
                     <font>
-                        <Font size="14.0" />
+                        <Font name="Lato Regular" size="14.0"/>
                     </font>
                 </Label>
-                <Label layoutX="51.0" layoutY="186.0" text="Email" textFill="#aeacac">
+                <Label layoutX="439.0" layoutY="126.0" text="Password" textFill="#aeacac">
                     <font>
-                        <Font size="14.0" />
+                        <Font name="Lato Regular" size="14.0"/>
                     </font>
                 </Label>
-                <Label layoutX="439.0" layoutY="113.0" text="Password" textFill="#aeacac">
+                <Label layoutX="51.0" layoutY="183.0" text="Profile Picture" textFill="#aeacac">
                     <font>
-                        <Font size="14.0" />
+                        <Font name="Lato Regular" size="14.0"/>
                     </font>
                 </Label>
-                <Label layoutX="439.0" layoutY="186.0" text="Birthdate" textFill="#aeacac">
+                <JFXTextField fx:id="txt_full_name" layoutX="51.0" layoutY="139.0" prefHeight="29.0" prefWidth="282.0">
                     <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <JFXTextField layoutX="51.0" layoutY="139.0" prefHeight="29.0" prefWidth="282.0">
-                    <font>
-                        <Font size="13.0" />
+                        <Font name="Lato Regular" size="13.0"/>
                     </font>
                 </JFXTextField>
-                <JFXTextField layoutX="439.0" layoutY="139.0" prefHeight="29.0" prefWidth="282.0">
+                <JFXButton fx:id="upload_btn" buttonType="RAISED" layoutX="51.0" layoutY="215.0"
+                           onAction="#upload_image" prefHeight="29.0" prefWidth="219.0" ripplerFill="#0900ff"
+                           style="-fx-background-color: #99ffff;" text="Upload Image">
                     <font>
-                        <Font size="13.0" />
+                        <Font name="Lato Black" size="13.0"/>
                     </font>
-                </JFXTextField>
-                <JFXDatePicker layoutX="439.0" layoutY="211.0" prefHeight="29.0" prefWidth="282.0">
-                    <!--<font>-->
-                        <!--<Font size="13.0" />-->
-                    <!--</font>-->
-                </JFXDatePicker>
-                <JFXTextField layoutX="52.0" layoutY="211.0" prefHeight="29.0" prefWidth="282.0">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                </JFXTextField>
-                <Pane layoutY="269.0" prefHeight="70.0" prefWidth="896.0" style="-fx-background-color: #F0F0F0;">
-                    <children>
-                        <JFXButton layoutX="61.0" layoutY="26.0" onMouseClicked="#save_button" prefHeight="29.0" prefWidth="81.0" style="-fx-background-color: #504df2;" text="Save" textFill="WHITE">
-                            <font>
-                                <Font size="13.0" />
-                            </font>
-                        </JFXButton>
-                    </children>
-                </Pane>
-                <Label layoutX="725.0" layoutY="13.0" text="Created Date" textFill="#3a1c9d">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="725.0" layoutY="33.0" text="25" textFill="#aeacac">
-                    <font>
-                        <Font name="System Bold" size="36.0" />
-                    </font>
-                </Label>
-                <Label layoutX="774.0" layoutY="41.0" text="AUG" textFill="#3a1c9d" />
-                <Label layoutX="774.0" layoutY="59.0" text="2018" textFill="#aeacac" />
+                </JFXButton>
                 <Label layoutX="123.0" layoutY="51.0" textFill="#b2b0b0">
                     <font>
-                        <Font size="14.0" />
+                        <Font name="Lato Regular" size="14.0"/>
                     </font>
                 </Label>
+                <JFXPasswordField fx:id="txt_password" layoutX="439.0" layoutY="139.0" prefHeight="29.0"
+                                  prefWidth="282.0">
+                    <font>
+                        <Font name="Lato Regular" size="13.0"/>
+                    </font>
+                </JFXPasswordField>
+                <JFXPasswordField fx:id="txt_confirm_password" layoutX="439.0" layoutY="211.0" prefHeight="29.0"
+                                  prefWidth="282.0">
+                    <font>
+                        <Font name="Lato Regular" size="13.0"/>
+                    </font>
+                </JFXPasswordField>
+                <Label layoutX="439.0" layoutY="186.0" text="Confirm Password" textFill="#aeacac">
+                    <font>
+                        <Font name="Lato Regular" size="14.0"/>
+                    </font>
+                </Label>
+                <JFXButton fx:id="save_profile_btn" buttonType="RAISED" layoutX="51.0" layoutY="270.0"
+                           onAction="#save_profile" prefHeight="29.0" prefWidth="137.0"
+                           style="-fx-background-color: #504df2;" text="Save Profile" textFill="WHITE">
+                    <font>
+                        <Font name="Lato Regular" size="13.0"/>
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="change_password_btn" buttonType="RAISED" layoutX="439.0" layoutY="266.0"
+                           onAction="#change_password" prefHeight="29.0" prefWidth="137.0"
+                           style="-fx-background-color: #504df2;" text="Change Password" textFill="WHITE">
+                    <font>
+                        <Font name="Lato Regular" size="13.0"/>
+                    </font>
+                </JFXButton>
+                <Separator layoutX="378.0" layoutY="96.0" orientation="VERTICAL" prefHeight="220.0" prefWidth="32.0"/>
             </children>
             <effect>
-                <DropShadow color="#d7d2d2" height="50.0" radius="24.5" width="50.0" />
+                <DropShadow color="#d7d2d2" height="50.0" radius="24.5" width="50.0"/>
             </effect>
         </Pane>
     </children>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -17,160 +18,134 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="623.0" prefWidth="1271.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.HomeController">
-    <children>
-        <Pane layoutX="-2.0" prefHeight="145.0" prefWidth="1062.0" styleClass="head-background" stylesheets="@../styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <Label fx:id="full_name_label" layoutX="224.0" layoutY="47.0" textFill="WHITE">
-                    <font>
-                        <Font size="36.0" />
-                    </font>
-                </Label>
-                <Label fx:id="username_label" layoutX="227.0" layoutY="100.0" textFill="WHITE">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                </Label>
-                <!--<AnchorPane prefHeight="125.0" prefWidth="1271.0" AnchorPane.leftAnchor="1041.0" AnchorPane.topAnchor="95.0">-->
-                    <JFXButton fx:id="edit_button" alignment="CENTER" layoutX="1041.0" layoutY="95.0" onMouseClicked="#edit_profile" prefHeight="30.0" prefWidth="169.0" ripplerFill="WHITE" style="-fx-background-color: #418cf4;" text="EDIT PROFILE" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1041.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="95.0">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="623.0" prefWidth="1271.0" style="-fx-background-color: #fff;" stylesheets="" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.HomeController">
+    <userData>
+        <fx:reference source="controller">
+        </fx:reference>
+    </userData>
+    <Pane layoutX="-2.0" prefHeight="145.0" prefWidth="1062.0" styleClass="head-background" stylesheets="@../styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Label fx:id="full_name_label" layoutX="224.0" layoutY="47.0" textFill="WHITE">
+            Full Name
+            <font>
+                <Font name="Lato Regular" size="36.0" />
+            </font>
+        </Label>
+        <Label fx:id="username_label" layoutX="227.0" layoutY="100.0" textFill="WHITE">
+            Email
+            <font>
+                <Font name="Lato Regular" size="13.0" />
+            </font>
+        </Label>
+        <!--<AnchorPane prefHeight="125.0" prefWidth="1271.0" AnchorPane.leftAnchor="1041.0" AnchorPane.topAnchor="95.0">-->
+        <JFXButton fx:id="edit_button" alignment="CENTER" layoutX="1041.0" layoutY="95.0" onMouseClicked="#edit_profile" prefHeight="30.0" prefWidth="169.0" ripplerFill="WHITE" style="-fx-background-color: #418cf4;" text="EDIT PROFILE" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1041.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="95.0">
+            <font>
+                <Font name="Lato Black" size="12.0" />
+            </font>
+        </JFXButton>
+        <!--</AnchorPane>-->
+    </Pane>
+    <VBox layoutX="-1.0" layoutY="145.0" prefHeight="438.0" prefWidth="252.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="146.0">
+        <children>
+            <Label prefHeight="30.0" prefWidth="252.0" text="Your Recommendations" textFill="#171717">
+                <font>
+                    <Font name="Lato Regular" size="13.0" />
+                </font>
+                <padding>
+                    <Insets left="40.0" />
+                </padding>
+                <VBox.margin>
+                    <Insets top="60.0" />
+                </VBox.margin>
+            </Label>
+            <JFXButton fx:id="movies_bar" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" onMouseClicked="#switchToMovies" prefHeight="43.0" prefWidth="252.0" ripplerFill="#80ddfc" stylesheets="@../styles.css" text="Movies" textFill="#5b5858">
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <font>
+                    <Font name="Lato Regular" size="13.0" />
+                </font>
+                <graphic>
+                    <FontAwesomeIconView accessibleText="Music List" fill="#0100f4" glyphName="FILM" />
+                </graphic>
+                <padding>
+                    <Insets left="50.0" />
+                </padding>
+            </JFXButton>
+            <JFXButton fx:id="artists_bar" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" onMouseClicked="#switchToArtists" prefHeight="43.0" prefWidth="252.0" ripplerFill="#80ddfc" stylesheets="@../styles.css" text="Music Artists" textFill="#5b5858">
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <font>
+                    <Font name="Lato Regular" size="13.0" />
+                </font>
+                <graphic>
+                    <FontAwesomeIconView accessibleText="Music List" fill="#0100f4" glyphName="MUSIC" />
+                </graphic>
+                <padding>
+                    <Insets left="50.0" />
+                </padding>
+            </JFXButton>
+
+
+
+            <VBox layoutX="636.0" layoutY="14.0" prefHeight="303.0" prefWidth="234.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+                <HBox prefHeight="30.0" prefWidth="308.0">
+                    <JFXTextField fx:id="searchText" onKeyTyped="#searchForItems" prefHeight="26.0" prefWidth="271.0" promptText="Search for Items Here" unFocusColor="BLACK">
                         <font>
-                            <Font name="System Bold" size="12.0" />
+                            <Font name="Lato Black" size="13.0" />
                         </font>
-                    </JFXButton>
-                <!--</AnchorPane>-->
-            </children>
-        </Pane>
-        <VBox layoutX="-1.0" layoutY="145.0" prefHeight="438.0" prefWidth="252.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="146.0">
-            <children>
-                <Label prefHeight="30.0" prefWidth="252.0" text="Your Recommendations" textFill="#171717">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                    <padding>
-                        <Insets left="40.0" />
-                    </padding>
-                    <VBox.margin>
-                        <Insets top="60.0" />
-                    </VBox.margin>
-                </Label>
-                <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#80ddfc" text="Music" textFill="#5b5858">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                    <graphic>
-                        <FontAwesomeIcon accessibleText="Music List" fill="#41c7f4" iconName="MUSIC" />
-                        <!--<ImageView accessibleText="Project List" fitHeight="16.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">-->
-                        <!--<image>-->
-                        <!--<Image url="@../assets/images/projects.png" />-->
-                        <!--</image>-->
-                        <!--</ImageView>-->
-                    </graphic>
-                    <padding>
-                        <Insets left="50.0" />
-                    </padding>
-                </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#80ddfc" text="Movies" textFill="#5b5858">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                    <graphic>
-                        <FontAwesomeIcon accessibleText="Music List" fill="#41c7f4" iconName="FILM" />
-                        <!--<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">-->
-                        <!--<image>-->
-                        <!--<Image url="@../assets/images/reliabilty.png" />-->
-                        <!--</image>-->
-                        <!--</ImageView>-->
-                    </graphic>
-                    <padding>
-                        <Insets left="50.0" />
-                    </padding>
-                </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#80ddfc" text="Books" textFill="#5b5858">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                    <graphic>
-                        <FontAwesomeIcon accessibleText="Music List" fill="#41c7f4" iconName="BOOK" />
-                        <!--<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">-->
-                        <!--<image>-->
-                        <!--<Image url="@../assets/images/projections.png" />-->
-                        <!--</image>-->
-                        <!--<viewport>-->
-                        <!--<Rectangle2D />-->
-                        <!--</viewport>-->
-                        <!--</ImageView>-->
-                    </graphic>
-                    <padding>
-                        <Insets left="50.0" />
-                    </padding>
-                </JFXButton>
-            </children>
+                    </JFXTextField>
+                    <FontAwesomeIconView fill="#130390" glyphName="SEARCH" size="1.4em" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="20.59999942779541">
+                        <HBox.margin>
+                            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                        </HBox.margin>
+                    </FontAwesomeIconView>
+                </HBox>
+                <ScrollPane layoutX="651.0" layoutY="45.0" prefHeight="303.0" prefWidth="291.0">
+                    <VBox fx:id="searchItems" prefHeight="268.0" prefWidth="291.0" />
+                </ScrollPane>
+            </VBox>
+
+
+        </children>
+
+    </VBox>
+    <Pane layoutX="52.0" layoutY="13.0" prefHeight="162.0" prefWidth="161.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow blurType="GAUSSIAN" height="10.0" radius="4.5" width="10.0" />
+        </effect>
+        <ImageView fx:id="propic" fitHeight="152.0" fitWidth="149.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../../frontend/images/-abstract-user-icon-1.png" />
+        </ImageView>
+    </Pane>
+    <HBox layoutX="251.0" layoutY="145.0" prefHeight="30.0" prefWidth="810.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="1.0">
+        <JFXButton fx:id="item_ratings" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="207.0" styleClass="active" stylesheets="@../styles.css" text="Movie Rating History" textFill="#171717">
+            <font>
+                <Font name="Lato Bold" size="13.0" />
+            </font>
+        </JFXButton>
+        <JFXButton fx:id="item_recommendations" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleRecommendations" prefHeight="30.0" prefWidth="207.0" stylesheets="@../styles.css" text="Movie Recommendations" textFill="#171717">
+            <font>
+                <Font name="Lato Bold" size="13.0" />
+            </font>
+        </JFXButton>
+    </HBox>
+    <ScrollPane layoutX="251.0" layoutY="182.0" prefHeight="407.0" prefWidth="993.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="182.0">
+        <VBox fx:id="pnl_scroll" prefHeight="404.0" prefWidth="996.0" spacing="20.0" style="-fx-background-color: #fff;" />
+    </ScrollPane>
+    <GridPane alignment="TOP_RIGHT" layoutX="1146.0" AnchorPane.bottomAnchor="566.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+        </rowConstraints>
+        <VBox alignment="TOP_RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+            <fx:include source="titlebar.fxml" />
         </VBox>
-        <Pane layoutX="71.0" layoutY="44.0" prefHeight="131.0" prefWidth="142.0" style="-fx-background-color: #fff;">
-            <children>
-                <ImageView fitHeight="120.0" fitWidth="139.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../assets/images/logo.png" />
-                    </image>
-                </ImageView>
-            </children>
-            <effect>
-                <DropShadow blurType="GAUSSIAN" height="10.0" radius="4.5" width="10.0" />
-            </effect>
-        </Pane>
-        <ScrollPane layoutX="251.0" layoutY="182.0" prefHeight="406.0" prefWidth="810.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="182.0">
-            <content>
-                <VBox fx:id="pnl_scroll" prefHeight="404.0" prefWidth="1023.0" spacing="20.0" style="-fx-background-color: #fff;" />
-            </content>
-        </ScrollPane>
-        <HBox layoutX="251.0" layoutY="145.0" prefHeight="30.0" prefWidth="810.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="1.0">
-            <children>
-                <Label fx:id="lbl_currentprojects" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="207.0" text="Current Projects(10)" textFill="#171717">
-                    <font>
-                        <Font name="System Bold" size="13.0" />
-                    </font>
-                    <padding>
-                        <Insets left="40.0" />
-                    </padding>
-                </Label>
-                <Label fx:id="lbl_pending" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="207.0" text="Pending Projects(12)" textFill="#171717">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                    <padding>
-                        <Insets left="40.0" />
-                    </padding>
-                </Label>
-                <Label fx:id="lbl_completed" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="207.0" text="Completed Projects(2)" textFill="#171717">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                    <padding>
-                        <Insets left="40.0" />
-                    </padding>
-                </Label>
-            </children>
-        </HBox>
-        <GridPane alignment="TOP_RIGHT" layoutX="1146.0" AnchorPane.bottomAnchor="566.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <VBox alignment="TOP_RIGHT" stylesheets="@../styles.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
-                    <children>
-                        <fx:include source="titlebar.fxml" />
-                    </children>
-                </VBox>
-            </children>
-            <columnConstraints>
-                <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-            </rowConstraints>
-        </GridPane>
-    </children>
+    </GridPane>
+
 </AnchorPane>

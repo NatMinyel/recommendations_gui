@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox alignment="CENTER_RIGHT" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.TitlebarController">
+<HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="125.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.TitlebarController">
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <children>
-      <FontAwesomeIcon fill="YELLOW" iconName="CIRCLE" onMouseClicked="#min" size="1.4em" strokeType="OUTSIDE" strokeWidth="0.0">
+      <FontAwesomeIconView fill="YELLOW" glyphName="CIRCLE" onMouseClicked="#min" size="1.4em" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+          </HBox.margin>
+      </FontAwesomeIconView>
+      <FontAwesomeIconView fill="#26de81" glyphName="CIRCLE" onMouseClicked="#max" size="1.4em" strokeType="OUTSIDE" strokeWidth="0.0">
          <HBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </HBox.margin>
-      </FontAwesomeIcon>
-      <FontAwesomeIcon fill="#26de81" iconName="CIRCLE" onMouseClicked="#max" size="1.4em" strokeType="OUTSIDE" strokeWidth="0.0">
+      </FontAwesomeIconView>
+      <FontAwesomeIconView fill="RED" glyphName="CIRCLE" onMouseClicked="#close" size="1.4em" strokeType="OUTSIDE" strokeWidth="0.0">
          <HBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </HBox.margin>
-      </FontAwesomeIcon>
-      <FontAwesomeIcon fill="RED" iconName="CIRCLE" onMouseClicked="#close" size="1.4em" strokeType="OUTSIDE" strokeWidth="0.0">
-         <HBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </HBox.margin>
-      </FontAwesomeIcon>
+      </FontAwesomeIconView>
    </children>
 </HBox>

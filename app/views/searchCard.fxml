@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="64.0" prefWidth="208.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.SearchCardController">
+   <children>
+      <Pane onMouseClicked="#movieSelected" prefHeight="81.0" prefWidth="227.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="movie_image" fitHeight="81.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox layoutX="72.0" prefHeight="81.0" prefWidth="165.0">
+               <children>
+                  <Label fx:id="movie_name" prefHeight="21.0" prefWidth="132.0" text="Movie Name">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Lato Black" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="movie_year" text="Year: 1998">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Lato Light" size="13.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+   <effect>
+      <DropShadow height="0.0" radius="7.0275" width="30.11" />
+   </effect>
+</AnchorPane>

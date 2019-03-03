@@ -27,8 +27,10 @@ public class TitlebarController implements Initializable {
     public void max(MouseEvent event) {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        stage.setFullScreenExitHint(" ");
-        stage.setMaximized(!stage.isMaximized());
+//        System.out.println(stage.isMaximized());
+        stage.setFullScreenExitHint("");
+        stage.setFullScreen(!stage.isFullScreen());
+//        stage.setMaximized(!stage.isMaximized());
     }
 
     @FXML
